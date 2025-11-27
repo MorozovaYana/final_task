@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flights</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Available Flights</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Flight</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Seats</th>
+        <th>Book</th>
+    </tr>
+
+    {% for f in flights %}
+    <tr>
+        <td>{{ f.id }}</td>
+        <td>{{ f.flight_number }}</td>
+        <td>{{ f.origin }}</td>
+        <td>{{ f.destination }}</td>
+        <td>{{ f.available_seats }}</td>
+        <td>
+            <form method="POST" action="/book">
+                <input type="hidden" name="flight_id" value="{{ f.id }}">
+                <input type="text" name="name" placeholder="Your name" required>
+                <button type="submit">Book</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

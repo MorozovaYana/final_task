@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logs</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>System Logs</h1>
+
+<ul>
+    {% for l in logs %}
+        <li>[{{ l.created_at }}] — {{ l.log_message }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

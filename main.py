@@ -1,5 +1,5 @@
 import psycopg2
-from flask import Flask, render_template, current_app, g
+from flask import Flask, render_template, current_app, g, request
 import random
 from datetime import datetime
 import pytz
@@ -91,6 +91,41 @@ def browse():
     cursor.execute('select id, date, title, content from entries order by date')
     rowlist = cursor.fetchall()
     return render_template('browse.html', entries=rowlist)
+
+
+@app.route("/flights")
+def flights():
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM flights ORDER BY id")
+    flights = cur.fetchall()
+    return render_template("flights.html", flights=flights)
+
+@app.route("/book", methods=["POST"])
+def book_flight():
+    name = request.form.get("name")
+    flight_id = request.form.get("flight_id")
+
+    conn = get_db()
+    cur = conn.cursor()
+
+    try:
+        cur.execute("CALL make_booking(%s, %s)", (name, flight_id))
+        conn.commit()
+        msg = "Booking successful!"
+    except Exception as e:
+        conn.commit()
+        msg = f"Error: {str(e)}"
+
+    return render_template("booking_result.html", message=msg)
+
+@app.route("/logs")
+def logs():
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM logs ORDER BY id DESC")
+    logs = cur.fetchall()
+    return render_template("logs.html", logs=logs)
 
 ### Start flask
 if __name__ == '__main__':
