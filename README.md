@@ -301,3 +301,12 @@ Procedure booking created for Yana Morozova
 6. Якщо місць нема → HTML-сторінка покаже помилку
 7. Якщо все ок → бронювання створиться, лог запишеться
 
+
+Візуалізація проекту:
+![Flights Page](images/flights.png)
+
+![Logs Page](images/logs.png)
+
+![Booking Form](images/book.png)
+
+
