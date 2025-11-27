@@ -303,10 +303,16 @@ Procedure booking created for Yana Morozova
 
 
 Візуалізація проекту:
+Сторінка рейсів:
 ![Flights Page](img/flights.png)
 
+Сторінка логів:
 ![Logs Page](img/logs.png)
 
+Сторінка бронювання:
 ![Booking Form](img/book.png)
+
+PgAdmin
+![Strukture db](img/pgadmin.png)
 
 
