@@ -303,10 +303,10 @@ Procedure booking created for Yana Morozova
 
 
 Візуалізація проекту:
-![Flights Page](images/flights.png)
+![Flights Page](img/flights.png)
 
-![Logs Page](images/logs.png)
+![Logs Page](img/logs.png)
 
-![Booking Form](images/book.png)
+![Booking Form](img/book.png)
 
 
